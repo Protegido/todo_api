@@ -1,0 +1,30 @@
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const mongoose = require('mongoose');
+const router = require('./routes/todoRoutes');
+
+
+const live_URL = "mongodb+srv://Protegido:@Progen6@cluster0.2vofczk.mongodb.net/UserDB?appName=Cluster0"
+const local_URL = "mongodb://localhost:27017/AuthenticationDB"
+//mongodb://localhost:27017 = is the default connection string for MongoDB running on the local machine
+
+//connect to the database
+mongoose.connect(local_URL) 
+//if the connection is successful
+.then(() => console.log("MongoDB Connected")) 
+//if the connection fails
+.catch((err) => console.error("Could not connect to MongoDB", err)); 
+
+
+app.use(cors());
+app.use(express.json());
+app.use("/todo", router);
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
