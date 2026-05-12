@@ -36,17 +36,21 @@ const getOneTodo = async (req, res) => {
 
 const createTodo = async (req, res) => {
     try {
-        const { title, details } = req.body;
-    } catch (error) {
-        return res.status(500).json({
-            error : error.message
+        const {title, details} = req.body;
+        const todo = await TodoModel.create({title, details});
+        return res.status(201).json({
+            message : "Todo created",
+            data : todo
         });
+    } catch (error) {
+        return res.status(500)
+        .json({error : error.message});
     }
 };
 const updateTodo = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, details } = req.body;
+        const {title, details} = req.body;
         const todo = await TodoModel.findByIdAndUpdate(
             id, 
             { completed: true}, 
