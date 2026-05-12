@@ -34,10 +34,12 @@ const getOneTodo = async (req, res) => {
     }
 };
 
+// to create a single todo
+//const { title, details } = req.body;
+//const todo = await TodoModel.create({ title, details });
 const createTodo = async (req, res) => {
     try {
-        const {title, details} = Array.isArray(req.body) ? req.body[0] : req.body;
-        const todo = await TodoModel.insertMany([{title, details}]);
+        const todo = await TodoModel.insertMany(req.body);
         return res.status(201).json({
             message : "Todo created",
             data : todo
@@ -48,6 +50,25 @@ const createTodo = async (req, res) => {
     }
 };
 const updateTodo = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const {title, details} = req.body;
+        const todo = await TodoModel.findByIdAndUpdate(
+            id, 
+            { completed: true}, 
+            { new: true });
+        return res.status(200).json({
+            message : "Todo updated",
+            data : todo
+        });
+    } catch (error) {
+        return res.status(500).json({
+            error : error.message
+        }); 
+    }
+};
+
+const updateSecondTodo = async (req, res) => {
     try {
         const { id } = req.params;
         const {title, details} = req.body;
@@ -85,5 +106,6 @@ module.exports = {
     getOneTodo,
     createTodo,
     updateTodo,
+    updateSecondTodo,
     deleteTodo
 }
