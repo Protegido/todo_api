@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
-const router = require('./routes/todoRoutes');
+const router = require('./routes/todoRoutes.js');
 
 
 const live_URL = "mongodb+srv://Protegido:@Progen6@cluster0.2vofczk.mongodb.net/UserDB?appName=Cluster0"
