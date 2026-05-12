@@ -10,7 +10,7 @@ const live_URL = "mongodb+srv://Protegido:PROGEN6@cluster0.2vofczk.mongodb.net/A
 //mongodb://localhost:27017 = is the default connection string for MongoDB running on the local machine
 
 //connect to the database
-mongoose.connect(live_URL)
+mongoose.connect(process.env.live_URL)
 //mongoose.connect(local_URL) 
 //if the connection is successful
 .then(() => console.log("MongoDB Connected")) 
