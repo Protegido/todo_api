@@ -36,7 +36,7 @@ const getOneTodo = async (req, res) => {
 
 const createTodo = async (req, res) => {
     try {
-        const {title, details} = req.body;
+        const {title, details} = Array.isArray(req.body) ? req.body[0] : req.body;
         const todo = await TodoModel.insertMany([{title, details}]);
         return res.status(201).json({
             message : "Todo created",
