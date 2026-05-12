@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const router = require('./routes/todoRoutes.js');
 
 
-const live_URL = "mongodb+srv://Protegido:%40Progen6@cluster0.2vofczk.mongodb.net/AuthenticationDB?appName=Cluster0"
+const live_URL = "mongodb+srv://Protegido:PROGEN6@cluster0.2vofczk.mongodb.net/AuthenticationDB?appName=Cluster0"
 const local_URL = "mongodb://localhost:27017/AuthenticationDB"
 //mongodb://localhost:27017 = is the default connection string for MongoDB running on the local machine
 
