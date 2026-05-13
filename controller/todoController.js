@@ -6,7 +6,7 @@ const getAllTodos = async (req, res) => {
         const todos = await TodoModel.find();
         return res.status(200).json({
             message : "All Todos",
-            data : todos
+            data : todo
         });
     } catch (error) {        
         return res.status(500).json({
@@ -39,7 +39,7 @@ const getOneTodo = async (req, res) => {
 //const todo = await TodoModel.create({ title, details });
 const createTodo = async (req, res) => {
     try {
-        const todo = await TodoModel.insertMany(req.body);
+        const todo = await TodoModel.insertMany([req.body]);
         return res.status(201).json({
             message : "Todo created",
             data : todo
