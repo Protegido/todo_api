@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const router = require('./routes/todoRoutes.js');
+const router = require('./routes/todoRoutes');
 
 
 const live_URL = "mongodb+srv://Protegido:PROGEN6@cluster0.2vofczk.mongodb.net/AuthenticationDB=Cluster0";
