@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const router = require('./routes/todoRoutes');
 
 
-const live_URL = "mongodb+srv://Protegido:PROGEN6@cluster0.2vofczk.mongodb.net/AuthenticationDB?appName=Cluster0";
+const live_URL = "mongodb://Protegido:PROGEN6@ac-ocbaonu-shard-00-00.2vofczk.mongodb.net:27017,ac-ocbaonu-shard-00-01.2vofczk.mongodb.net:27017,ac-ocbaonu-shard-00-02.2vofczk.mongodb.net:27017/?ssl=true&replicaSet=atlas-8tt777-shard-0&authSource=admin&appName=Cluster0"
+//"mongodb+srv://Protegido:PROGEN6@cluster0.2vofczk.mongodb.net/AuthenticationDB?appName=Cluster0";
 ///mongodb://localhost:27017//localhost:27017 = is the default connection string for MongoDB running on the local machine
 const local_URL="mongodb://localhost:27017/AuthenticationDB";
 
