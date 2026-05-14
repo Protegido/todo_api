@@ -6,7 +6,7 @@ const getAllTodos = async (req, res) => {
         const todos = await TodoModel.find();
         return res.status(200).json({
             message : "All Todos",
-            data : todo
+            data : todos
         });
     } catch (error) {        
         return res.status(500).json({
@@ -35,11 +35,10 @@ const getOneTodo = async (req, res) => {
 };
 
 // to create a single todo
-//const { title, details } = req.body;
-//const todo = await TodoModel.create({ title, details });
 const createTodo = async (req, res) => {
     try {
-        const todo = await TodoModel.insertMany(req.body);
+            const { title, details } = req.body;
+const todo = await TodoModel.create({ title, details });
         return res.status(201).json({
             message : "Todo created",
             data : todo
